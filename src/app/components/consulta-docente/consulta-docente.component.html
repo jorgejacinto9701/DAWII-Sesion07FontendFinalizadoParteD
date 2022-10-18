@@ -34,11 +34,11 @@
          <div class="row" style="margin-top: 2%">
             <label for="dni" class="col-lg-2">Fecha Inicio</label>
             <div class="col-lg-2">
-                <input type="text" class="form-control" name="fechaInicio" id="fechaInicio"  [(ngModel)]= "fechaInicio" />
+                <input type="date" class="form-control" name="fechaInicio" id="fechaInicio"  [(ngModel)]= "fechaInicio" />
             </div>
             <label for="dni" class="col-lg-2">Fecha Fin</label>
             <div class="col-lg-2">
-                <input type="text" class="form-control" name="fechaFin" id="fechaFin"  [(ngModel)]= "fechaFin" />
+                <input type="date" class="form-control" name="fechaFin" id="fechaFin"  [(ngModel)]= "fechaFin" />
             </div>
          </div>
 
@@ -85,6 +85,8 @@
                             <th>Nombre</th>
                             <th>DNI</th>
                             <th>Ubigeo</th>
+                            <th>Fec. Registro</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,6 +95,8 @@
                              <td>{{ aux.nombre }}</td> 
                              <td>{{ aux.dni }}</td>    
                              <td>{{ aux.ubigeo!.departamento }} - {{ aux.ubigeo!.provincia }} - {{ aux.ubigeo!.distrito }}</td>    
+                             <td>{{ aux.fechaRegistro }}</td>    
+                             <td>{{ aux.estado ==1 ?"Activo":"Inactivo" }}</td>    
                           </tr>     
                     </tbody>
                 </table>
