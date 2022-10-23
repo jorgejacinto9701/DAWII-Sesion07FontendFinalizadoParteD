@@ -87,16 +87,23 @@
                             <th>Ubigeo</th>
                             <th>Fec. Registro</th>
                             <th>Estado</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                          <tr *ngFor="let aux of docentes">
+                          <tr *ngFor="let aux of docentes; let i = index">
                              <td>{{ aux.idDocente }}</td>   
                              <td>{{ aux.nombre }}</td> 
                              <td>{{ aux.dni }}</td>    
                              <td>{{ aux.ubigeo!.departamento }} - {{ aux.ubigeo!.provincia }} - {{ aux.ubigeo!.distrito }}</td>    
                              <td>{{ aux.fechaRegistro }}</td>    
-                             <td>{{ aux.estado ==1 ?"Activo":"Inactivo" }}</td>    
+                             <td>{{ aux.estado ==1 ?"Activo":"Inactivo" }}</td> 
+                             <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="estado_{{i}}" name="estadoNuevo" [checked]="aux.estado==1?true:false"  (change)="cambioEstado(aux, $event)">
+                                    <label class="custom-control-label" for="estado_{{i}}"></label>
+                                </div>
+                             </td>   
                           </tr>     
                     </tbody>
                 </table>
