@@ -30,25 +30,15 @@ export class ConsultaDocenteComponent implements OnInit {
   docentes: Docente[] = [];
 
   constructor(private ubigeoService: UbigeoService,private docenteService:DocenteService) { 
-    this.ubigeoService.listarDepartamento().subscribe(
-        x => this.departamentos = x
-    );
+ 
   }
 
   cargaProvincia(){
-      this.ubigeoService.listaProvincias(this.selDepartamento).subscribe(
-        x => this.provincias = x
-      );
-      this.selProvincia = "-1" 
-      this.selDistrito = -1 
-      this.distritos = [];
+
   }
 
   cargaDistrito(){
-      this.ubigeoService.listaDistritos(this.selDepartamento, this.selProvincia).subscribe(
-        x => this.distritos = x
-      );
-      this.selDistrito = -1 
+
   }
 
   consultaDocente(){
